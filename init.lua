@@ -42,7 +42,6 @@ vim.opt.showmatch = true
 vim.opt.timeout = false
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 200
-vim.opt.pastetoggle = "<F11>"
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
