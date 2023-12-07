@@ -1,6 +1,7 @@
 return {
     "ethanholz/nvim-lastplace",
     "lambdalisue/suda.vim",
+    "folke/neodev.nvim",
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build =
