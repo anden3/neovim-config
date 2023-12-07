@@ -11,6 +11,7 @@ M.config = function()
     local sources = {
         nls.builtins.code_actions.shellcheck,
         nls.builtins.diagnostics.shellcheck,
+        nls.builtins.diagnostics.zsh,
         --nls.builtins.formatting.shellharden,
         nls.builtins.formatting.shfmt.with {
             extra_args = { "-i", "4", "-sr", "-ci", "-s" }

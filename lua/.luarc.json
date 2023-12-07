@@ -1,0 +1,9 @@
+{
+    "workspace.library": [
+        "/home/andre/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/usr/share/nvim/runtime/lua",
+        "/home/andre/.local/share/nvim/lazy/nvim-dap-ui/lua",
+        "/home/andre/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}
