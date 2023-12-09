@@ -13,7 +13,7 @@ M.config = function()
     local treesitter = require("nvim-treesitter.configs")
 
     treesitter.setup({
-        ensure_installed = { "lua", "vim", "toml", "rust", "c_sharp" },
+        ensure_installed = { "lua", "vim", "toml", "rust" },
         auto_install = true,
 
         highlight = {
