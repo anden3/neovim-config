@@ -29,6 +29,9 @@ M.config = function()
         check = {
             command = "clippy",
         },
+        diagnostics = {
+            disabled = { "inactive-code" }
+        },
         hover = {
             actions = {
                 run = { enable = false },
