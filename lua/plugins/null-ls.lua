@@ -16,6 +16,9 @@ M.config = function()
         --b.formatting.shellharden,
         b.formatting.shfmt.with {
             extra_args = { "-i", "4", "-sr", "-ci", "-s" }
+        },
+        b.formatting.sql_formatter.with {
+            command = { "sleek" }
         }
     }
 
