@@ -35,10 +35,10 @@ M.config = function()
 
     local sources = {
         { name = "nvim_lsp_signature_help", priority = 10 },
-        { name = "nvim_lsp", priority = 9 },
-        { name = "luasnip", priority = 7, keyword_length = 3 },
-        { name = "buffer", priority = 6, keyword_length = 8 },
-        { name = "path", priority = 4 },
+        { name = "nvim_lsp",                priority = 9 },
+        { name = "luasnip",                 priority = 7, keyword_length = 3 },
+        { name = "buffer",                  priority = 6, keyword_length = 8 },
+        { name = "path",                    priority = 4 },
     }
 
     local sorting = {
@@ -67,11 +67,11 @@ M.config = function()
     })
 
     cmp.setup.cmdline({ "/", "?" }, {
-	mapping = cmp.mapping.preset.cmdline(),
-	window = { completion = cmp.config.window.bordered({ col_offset = 0 }) },
-	formatting = { fields = { "abbr" } },
-	sources = {
-	    { name = "buffer" },
+        mapping = cmp.mapping.preset.cmdline(),
+        window = { completion = cmp.config.window.bordered({ col_offset = 0 }) },
+        formatting = { fields = { "abbr" } },
+        sources = {
+            { name = "buffer" },
         },
     })
 
@@ -80,9 +80,9 @@ M.config = function()
         window = { completion = cmp.config.window.bordered({ col_offset = 0 }) },
         formatting = { fields = { "abbr" } },
         sources = cmp.config.sources({
-                { name = "path" },
+            { name = "path" },
         }, {
-                { name = "cmdline" },
+            { name = "cmdline" },
         }),
     })
 end
