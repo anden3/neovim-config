@@ -78,8 +78,6 @@ M.config = function()
             Lua = lua_config,
         }
     })
-
-    lspconfig.csharp_ls.setup({})
 end
 
 return M
