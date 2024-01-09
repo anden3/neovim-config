@@ -5,7 +5,9 @@ local M = {
             config = function() require("scrollbar.handlers.search").setup({}) end, },
         { "lewis6991/gitsigns.nvim",
             config = function()
-                require('gitsigns').setup()
+                require('gitsigns').setup({
+                    attach_to_untracked = false
+                })
                 require("scrollbar.handlers.gitsigns").setup()
             end,
         },

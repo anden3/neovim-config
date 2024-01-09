@@ -40,11 +40,16 @@ M.config = function()
         },
     }
 
+    local capabilities = vim.tbl_deep_extend("force", require("lspconfig").util.default_config.capabilities,
+        require("cmp_nvim_lsp").default_capabilities())
+
+    capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
     local server = {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
         settings = {
             ["rust-analyzer"] = ra_settings,
-        }
+        },
+        capabilities = capabilities
     }
 
     rust_tools.setup({
