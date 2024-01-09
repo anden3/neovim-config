@@ -7,13 +7,14 @@ local M = {
 
 M.config = function()
     local nls = require("null-ls")
+    local b = nls.builtins
 
     local sources = {
-        nls.builtins.code_actions.shellcheck,
-        nls.builtins.diagnostics.shellcheck,
-        nls.builtins.diagnostics.zsh,
-        --nls.builtins.formatting.shellharden,
-        nls.builtins.formatting.shfmt.with {
+        b.code_actions.shellcheck,
+        b.diagnostics.shellcheck,
+        b.diagnostics.zsh,
+        --b.formatting.shellharden,
+        b.formatting.shfmt.with {
             extra_args = { "-i", "4", "-sr", "-ci", "-s" }
         }
     }
