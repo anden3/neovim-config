@@ -8,12 +8,14 @@ local M = {
         "hrsh7th/cmp-nvim-lsp-signature-help",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+        "zbirenbaum/copilot.lua"
     },
 }
 
 M.config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local copilot = require("copilot.suggestion")
 
     vim.opt.completeopt = { "menu", "menuone", "noselect", "preview" }
     vim.opt.shortmess = vim.opt.shortmess + "c"
@@ -47,6 +49,13 @@ M.config = function()
         ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() and cmp.get_active_entry() then
                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+            else
+                fallback()
+            end
+        end, { "i" }),
+        ["<S-CR>"] = cmp.mapping(function(fallback)
+            if copilot.is_visible() then
+                copilot.accept()
             else
                 fallback()
             end
