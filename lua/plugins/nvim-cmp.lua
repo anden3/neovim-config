@@ -59,7 +59,7 @@ M.config = function()
             else
                 fallback()
             end
-        end, { "i" }),
+        end, { "i", "s", "c" }),
     }
 
     local sources = {
