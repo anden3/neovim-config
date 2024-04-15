@@ -14,6 +14,8 @@ vim.g.loaded_perl_provider = 0
 vim.opt.termguicolors = true
 vim.opt.mouse = 'a'
 
+vim.opt.clipboard = "unnamed"
+
 vim.opt.modelines = 0
 vim.opt.number = true
 vim.opt.visualbell = true
