@@ -7,6 +7,7 @@ local liblldb_path = "/usr/lib/codelldb/lldb/lib/liblldb.so"
 
 M.config = function()
     local rust_tools = require("rust-tools")
+    local lspconfig = require("lspconfig")
 
     local tools = {
         runnables = {
@@ -43,7 +44,7 @@ M.config = function()
         },
     }
 
-    local capabilities = vim.tbl_deep_extend("force", require("lspconfig").util.default_config.capabilities,
+    local capabilities = vim.tbl_deep_extend("force", lspconfig.util.default_config.capabilities,
         require("cmp_nvim_lsp").default_capabilities())
 
     capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
@@ -52,7 +53,16 @@ M.config = function()
         settings = {
             ["rust-analyzer"] = ra_settings,
         },
-        capabilities = capabilities
+        capabilities = capabilities,
+        root_dir = function(path)
+            local workspace = lspconfig.util.root_pattern("Cargo.toml")(vim.fn.getcwd())
+
+            if vim.startswith(path, workspace) then
+                return workspace
+            end
+
+            return nil
+        end
     }
 
     rust_tools.setup({
