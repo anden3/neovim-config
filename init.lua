@@ -14,6 +14,8 @@ vim.g.loaded_perl_provider = 0
 vim.opt.termguicolors = true
 vim.opt.mouse = 'a'
 
+vim.opt.clipboard = "unnamed"
+
 vim.opt.modelines = 0
 vim.opt.number = true
 vim.opt.visualbell = true
@@ -42,7 +44,6 @@ vim.opt.showmatch = true
 vim.opt.timeout = false
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 200
-vim.opt.pastetoggle = "<F11>"
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

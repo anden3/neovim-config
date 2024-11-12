@@ -2,6 +2,7 @@ vim.opt.runtimepath:prepend(vim.fn.stdpath('config') .. '/vim')
 vim.opt.runtimepath:append(vim.fn.stdpath('data') .. '/vim')
 vim.opt.runtimepath:append(vim.fn.stdpath('config') .. '/vim/after')
 vim.opt.runtimepath:append(vim.fn.stdpath('config') .. '/nvim')
+vim.opt.runtimepath:append(vim.fn.stdpath('config') .. '/nvim/after')
 
 vim.opt.viminfofile = vim.fn.stdpath('state') .. '/vim/viminfo'
 
