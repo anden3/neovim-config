@@ -14,7 +14,11 @@ vim.g.loaded_perl_provider = 0
 vim.opt.termguicolors = true
 vim.opt.mouse = 'a'
 
-vim.opt.clipboard = "unnamed"
+if vim.fn.has("win64") then
+    vim.opt.clipboard = "unnamed"
+else
+    vim.opt.clipboard = "unnamedplus"
+end
 
 vim.opt.modelines = 0
 vim.opt.number = true
