@@ -5,6 +5,8 @@ local M = {
     }
 }
 
+M.opts = { inlay_hints = { enabled = true }, }
+
 M.config = function()
     local lspconfig = require("lspconfig")
 
@@ -13,7 +15,7 @@ M.config = function()
         callback = function(ev)
             -- This callback is called when the LSP is attached/enabled for this buffer
             -- we could set keymaps related to LSP, etc here.
-
+            local client = vim.lsp.get_client_by_id(ev.data.client_id)
             local keymap_opts = { buffer = ev.buf }
 
             -- Code navigation and shortcuts
@@ -61,6 +63,11 @@ M.config = function()
                 group = format_sync_grp,
                 buffer = ev.buf,
             })
+
+            -- enable inlay hints
+            if client.server_capabilities.inlayHintProvider then
+                vim.lsp.inlay_hint.enable(true)
+            end
         end
     })
 
@@ -78,6 +85,13 @@ M.config = function()
             Lua = lua_config,
         }
     })
+
+    vim.lsp.handlers['workspace/diagnostic/refresh'] = function(_, _, ctx)
+        local ns = vim.lsp.diagnostic.get_namespace(ctx.client_id)
+        local bufnr = vim.api.nvim_get_current_buf()
+        vim.diagnostic.reset(ns, bufnr)
+        return true
+    end
 end
 
 return M
